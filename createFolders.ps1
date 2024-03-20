@@ -1,13 +1,13 @@
 $listFolder = @(
-    @('EstruturaSequencial', 18),
-    @('EstruturaDeDecisao', 28),
-    @('EstruturaDeRepeticao', 51),
-    @('ExerciciosListas', 24),
-    @('ExerciciosFuncoes', 14),
-    @('ExerciciosComStrings', 14),
-    @('ExerciciosArquivos', 2),
-    @('ExerciciosClasses', 17),
-    @('ListaDeExerciciosProjetos', 3)
+    @('1 - EstruturaSequencial', 18),
+    @('2 - EstruturaDeDecisao', 28),
+    @('3 - EstruturaDeRepeticao', 51),
+    @('4 - ExerciciosListas', 24),
+    @('5 - ExerciciosFuncoes', 14),
+    @('6 - ExerciciosComStrings', 14),
+    @('7 - ExerciciosArquivos', 2),
+    @('8 - ExerciciosClasses', 17),
+    @('9 - ListaDeExerciciosProjetos', 3)
 )
 
 
