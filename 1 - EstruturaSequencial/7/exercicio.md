@@ -1,0 +1,2 @@
+Faça um Programa que calcule a área de um quadrado, em seguida mostre o dobro desta área para o usuário.
+![area_quadrado](https://github.com/MatheusLPolidoro/python_brasil/assets/89528428/d4a58972-0b21-448e-a380-ec81b83d3177)
