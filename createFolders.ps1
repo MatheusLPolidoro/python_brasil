@@ -15,8 +15,8 @@ foreach ($folder in $listFolder) {
     mkdir $folder[0]
     cd ("$PWD\" + $folder[0])
     for ($index=1; $index -lt ($folder[1] + 1); $index ++) {
-        mkdir $index
-        cd ("$PWD\" + $index)
+        mkdir ([string]$index).PadLeft(2,'0')
+        cd ("$PWD\" + ([string]$index).PadLeft(2,'0'))
         New-item "__init__.py"
         New-item "exercicio.md"
         cd..
