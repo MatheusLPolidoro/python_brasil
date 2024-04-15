@@ -32,6 +32,7 @@ raiz_real_positiva = (-(b) + delta ** .5) / (2 * a)
 
 if not delta:
     print(f'A equação possui apenas uma raiz real: {raiz_real_positiva:.1f}')
+    exit(1)
 
 raiz_real_negativa = (-(b) - delta ** .5) / (2 * a)
 
