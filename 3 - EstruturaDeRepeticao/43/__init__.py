@@ -19,39 +19,44 @@ quando o pedido deve ser encerrado.
 import locale
 from collections import namedtuple
 
+# Preparação
 locale.setlocale(locale.LC_MONETARY, 'pt_BR')
 
-Item = namedtuple('Item', 'especificacao,codigo,preco,quantidade,total')
+Item = namedtuple('Item', 'codigo,especificacao,preco,quantidade,total')
 
 cardapio = [
-    Item('Cachorro Quente', 100, 1000.20, 0, 0),
-    Item('Bauru Simples', 101, 1.30, 0, 0),
-    Item('Bauru com ovo', 102, 1.50, 0, 0),
-    Item('Hambúrguer', 103, 1.20, 0, 0),
-    Item('Cheeseburguer', 104, 1.30, 0, 0),
-    Item('Refrigerante', 105, 1.00, 0, 0)
+    Item(100, 'Cachorro Quente', 1.20, 0, 0),
+    Item(101, 'Bauru Simples', 1.30, 0, 0),
+    Item(102, 'Bauru com ovo', 1.50, 0, 0),
+    Item(103, 'Hambúrguer', 1.20, 0, 0),
+    Item(104, 'Cheeseburguer', 1.30, 0, 0),
+    Item(105, 'Refrigerante', 1.00, 0, 0)
 ]
 
+# Exibição
 print('▬' * 35)
 print('Cardápio'.center(35))
 print('▬' * 35)
-print('Especificação   | Código | Preço')
+print('Código  | Especificação   | Preço')
 print('-' * 35)
 
 for item in cardapio:
     preco_formatado = locale.currency(item.preco, 'R$', grouping=True)
-    print(f"{item.especificacao:<16}|{item.codigo:.<8}| {preco_formatado:<8}")
+    print(f"{item.codigo:<8}| {item.especificacao:<16}| {preco_formatado:<8}")
 
 print('')
 
 # Entrada
 pedido = list()
+
 while True:
     codigo = int(input(' → Código do pedido: '))
-    item: Item = next(filter(lambda item: item.codigo == codigo, cardapio), None)
+    item: Item = next(
+        filter(lambda item: item.codigo == codigo, cardapio), None
+    )
 
     if not item:
-        print(' ø Não consta este código no cardapio.\n')
+        print(' ø Não consta este código no cardápio.\n')
         continue
 
     quantidade = int(input(f' → Quantidade de {item.especificacao}: '))
@@ -68,5 +73,24 @@ while True:
     if sair == 'N':
         break
 
+valor_total = sum([item.total for item in pedido])
+
 # Saída
-print(pedido)
+print('▬' * 70)
+print('Nota do pedido'.center(70))
+print('▬' * 70)
+print('Código  | Especificação   | Preço unitario | Quantidade | Total')
+print('-' * 70)
+
+for item in pedido:
+    preco = locale.currency(item.preco, 'R$', grouping=True)
+    total = locale.currency(item.total, 'R$', grouping=True)
+    print(
+        f'{item.codigo:<8}| {item.especificacao:<16}|'
+        + f' {preco:<15}| {item.quantidade:<11}| {total}'
+    )
+
+print('▬' * 70)
+total = locale.currency(valor_total, 'R$', grouping=True)
+print(f'VALOR TOTAL | '.rjust(58) + total)
+print('▬' * 70)
