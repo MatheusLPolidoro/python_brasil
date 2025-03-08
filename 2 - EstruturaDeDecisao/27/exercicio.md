@@ -1,7 +1,7 @@
-![pythonbrasil_logo](https://github.com/MatheusLPolidoro/python_brasil/assets/89528428/7c43d52a-bf1a-4add-9b72-72962962a3f9)
+![pythonbrasil_logo](../../logo_pythonBrasil.png)
 
-# Estrutura De Decisão 
-- [Lista de Exercícios](https://github.com/MatheusLPolidoro/python_brasil)
+# 2 - Estrutura De Decisão 
+[Lista de Exercícios](../../README.md)
 
 ## Exercício 27
 
@@ -13,3 +13,5 @@ Uma fruteira está vendendo frutas com a seguinte tabela de preços:
 |Maçã           | R$ 1,80 por Kg|          R$ 1,50 por Kg|
 
 Se o cliente comprar mais de 8 Kg em frutas ou o valor total da compra ultrapassar R$ 25,00, receberá ainda um desconto de 10% sobre este total. Escreva um algoritmo para ler a quantidade (em Kg) de morangos e a quantidade (em Kg) de maças adquiridas e escreva o valor a ser pago pelo cliente.
+
+[:page_with_curl: Solução](__init__.py)

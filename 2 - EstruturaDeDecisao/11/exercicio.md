@@ -1,7 +1,7 @@
-![pythonbrasil_logo](https://github.com/MatheusLPolidoro/python_brasil/assets/89528428/7c43d52a-bf1a-4add-9b72-72962962a3f9)
+![pythonbrasil_logo](../../logo_pythonBrasil.png)
 
-# Estrutura De Decisão 
-- [Lista de Exercícios](https://github.com/MatheusLPolidoro/python_brasil)
+# 2 - Estrutura De Decisão 
+[Lista de Exercícios](../../README.md)
 
 ## Exercício 11
 
@@ -20,5 +20,4 @@ Após o aumento ser realizado, informe na tela:
 - valor do aumento;
 - novo salário, após o aumento.
 
-[SOLUÇÃO](./__init__.py)
-
+[:page_with_curl: Solução](__init__.py)

@@ -1,7 +1,7 @@
-![pythonbrasil_logo](https://github.com/MatheusLPolidoro/python_brasil/assets/89528428/7c43d52a-bf1a-4add-9b72-72962962a3f9)
+![pythonbrasil_logo](../../logo_pythonBrasil.png)
 
-# Estrutura De Decisão 
-- [Lista de Exercícios](https://github.com/MatheusLPolidoro/python_brasil)
+# 2 - Estrutura De Decisão 
+[Lista de Exercícios](../../README.md)
 
 ## Exercício 14
 
@@ -16,3 +16,5 @@ Faça um programa que lê as duas notas parciais obtidas por um aluno numa disci
   |Entre 4.0 e zero        |       E  |
 
 O algoritmo deve mostrar na tela as notas, a média, o conceito correspondente e a mensagem “APROVADO” se o conceito for A, B ou C ou “REPROVADO” se o conceito for D ou E.
+
+[:page_with_curl: Solução](__init__.py)

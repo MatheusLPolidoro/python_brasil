@@ -1,7 +1,7 @@
-![pythonbrasil_logo](https://github.com/MatheusLPolidoro/python_brasil/assets/89528428/7c43d52a-bf1a-4add-9b72-72962962a3f9)
+![pythonbrasil_logo](../../logo_pythonBrasil.png)
 
-# Estrutura Sequencial 
-- [Lista de Exercícios](https://github.com/MatheusLPolidoro/python_brasil)
+# 1 - Estrutura Sequencial 
+[Lista de Exercícios](../../README.md)
 
 ## Exercício 17
 
@@ -11,3 +11,5 @@ Informe ao usuário as quantidades de tinta a serem compradas e os respectivos p
 - comprar apenas latas de 18 litros;
 - comprar apenas galões de 3,6 litros;
 - misturar latas e galões, de forma que o **desperdício de tinta seja menor**. Acrescente 10% de folga e sempre arredonde os valores para cima, isto é, considere latas cheias.
+
+[:page_with_curl: Solução](__init__.py)

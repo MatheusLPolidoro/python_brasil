@@ -1,7 +1,7 @@
-![pythonbrasil_logo](https://github.com/MatheusLPolidoro/python_brasil/assets/89528428/7c43d52a-bf1a-4add-9b72-72962962a3f9)
+![pythonbrasil_logo](../../logo_pythonBrasil.png)
 
-# Estrutura De Decisão 
-- [Lista de Exercícios](https://github.com/MatheusLPolidoro/python_brasil)
+# 2 - Estrutura De Decisão 
+[Lista de Exercícios](../../README.md)
 
 ## Exercício 21
 
@@ -9,3 +9,5 @@ Faça um Programa para um caixa eletrônico. O programa deverá perguntar ao usu
 
 - **Exemplo 1:** Para sacar a quantia de 256 reais, o programa fornece duas notas de 100, uma nota de 50, uma nota de 5 e uma nota de 1;
 - **Exemplo 2:** Para sacar a quantia de 399 reais, o programa fornece três notas de 100, uma nota de 50, quatro notas de 10, uma nota de 5 e quatro notas de 1.
+
+[:page_with_curl: Solução](__init__.py)
