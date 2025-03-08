@@ -9,12 +9,12 @@ também deve ser informados os códigos e valores do clente mais alto,
 do mais baixo, do mais gordo e do mais magro,
 além da média das alturas e dos pesos dos clientes
 """
-from collections import namedtuple
+from collections import namedtuple, defaultdict
 from statistics import mean
 
 # Entrada
 Cliente = namedtuple('Cliente', 'codigo,altura,peso')
-clientes = list()
+clientes = defaultdict(Cliente)
 
 while True:
     codigo = input('Código (0 para sair): ').strip()
@@ -22,25 +22,25 @@ while True:
     if codigo == '0':
         break
     
-    if codigo in [cliente.codigo for cliente in clientes]:
+    if codigo in clientes.keys():
         print('Este codigo já foi cadastrado.')
         continue
 
     altura = float(input('Altura: '))
     peso = float(input('Peso: '))
 
-    clientes.append(Cliente(codigo, altura, peso))
+    clientes[codigo] = Cliente(codigo, altura, peso)
     
 # Processamento
 if not clientes:
     print('Nenhum cliente para análise.')
     exit(0)
 
-mais_alto = max(clientes, key=lambda cliente: cliente.altura)
-mais_baixo = min(clientes, key=lambda cliente: cliente.altura)
-mais_gordo = max(clientes, key=lambda cliente: cliente.peso)
-mais_magro = min(clientes, key=lambda cliente: cliente.peso)
-media_altura, media_peso = list(map(mean, list(zip(*clientes))[1:]))
+mais_alto = max(clientes.values(), key=lambda cliente: cliente.altura)
+mais_baixo = min(clientes.values(), key=lambda cliente: cliente.altura)
+mais_gordo = max(clientes.values(), key=lambda cliente: cliente.peso)
+mais_magro = min(clientes.values(), key=lambda cliente: cliente.peso)
+media_altura, media_peso = list(map(mean, list(zip(*clientes.values()))[1:]))
 
 # Saída
 print(f'Mais alto: {mais_alto}')

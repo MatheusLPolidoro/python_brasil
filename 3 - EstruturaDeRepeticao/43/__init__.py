@@ -17,7 +17,7 @@ e o total geral do pedido. Considere que o cliente deve informar
 quando o pedido deve ser encerrado.
 """
 import locale
-from collections import namedtuple
+from collections import namedtuple, defaultdict
 
 # Preparação
 locale.setlocale(locale.LC_MONETARY, 'pt_BR')
@@ -47,33 +47,49 @@ for item in cardapio:
 print('')
 
 # Entrada
-pedido = list()
+pedido = defaultdict(Item)
 
 while True:
     codigo = int(input(' → Código do pedido: '))
-    item: Item = next(
-        filter(lambda item: item.codigo == codigo, cardapio), None
-    )
 
-    if not item:
-        print(' ø Não consta este código no cardápio.\n')
-        continue
+    if codigo in pedido.keys():
+        item: Item = pedido[codigo]
+        mudar_qtd = input(
+            f'Você já pediu {item.quantidade} {item.especificacao},' 
+            + ' deseja mudar a quantidade? [S/N]: '
+        ).upper()
 
-    quantidade = int(input(f' → Quantidade de {item.especificacao}: '))
+        if mudar_qtd != 'S':
+            print(' ♦ Ok, faça outro pedido.')
+            continue
+
+        quantidade = (
+            int(input(f' → Nova quantidade de {item.especificacao}: '))
+        )
+    else:
+        item: Item = next(
+            filter(lambda item: item.codigo == codigo, cardapio), None
+        )
+
+        if not item:
+            print(' ø Não consta este código no cardápio.\n')
+            continue
+
+        quantidade = int(input(f' → Quantidade de {item.especificacao}: '))
 
     # Processamento
     item = item._replace(
         quantidade=quantidade, total=item.preco * quantidade
     )
 
-    pedido.append(item)
+    pedido[codigo] = item
 
     sair = input('\nDeseja pedir mais alguma coisa? [S/N]: ').upper()
 
     if sair == 'N':
         break
 
-valor_total = sum([item.total for item in pedido])
+valor_total = sum([item.total for item in pedido.values()])
 
 # Saída
 print('▬' * 70)
@@ -82,7 +98,7 @@ print('▬' * 70)
 print('Código  | Especificação   | Preço unitario | Quantidade | Total')
 print('-' * 70)
 
-for item in pedido:
+for item in pedido.values():
     preco = locale.currency(item.preco, 'R$', grouping=True)
     total = locale.currency(item.total, 'R$', grouping=True)
     print(

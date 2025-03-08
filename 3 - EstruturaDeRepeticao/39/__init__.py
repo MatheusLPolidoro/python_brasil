@@ -6,25 +6,25 @@ Mostre o número do aluno mais alto e o número do aluno mais baixo,
 junto com suas alturas.
 """
 
-from collections import namedtuple
+from collections import namedtuple, defaultdict
 
 # Entrada
 Aluno = namedtuple('Aluno', 'numero, altura')
-alunos = list()
+alunos = defaultdict(Aluno)
 
 while len(alunos) < 10:
     num = int(input('Número do aluno: '))
 
-    if num in [aluno.numero for aluno in alunos]:
+    if num in alunos.keys():
         print('Número de aluno já cadastrado')
         continue
     
     altura = float(input('Altura em centímetros: '))
-    alunos.append(Aluno(num, altura))
+    alunos[num] = Aluno(num, altura)
 
 # Processamento
-mais_alto = max(alunos, key=lambda aluno: aluno.altura)
-mais_baixo = min(alunos, key=lambda aluno: aluno.altura)
+mais_alto = max(alunos.values(), key=lambda aluno: aluno.altura)
+mais_baixo = min(alunos.values(), key=lambda aluno: aluno.altura)
 
 # Saída
 print(f'Aluno mais alto: {mais_alto}')

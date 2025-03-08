@@ -23,7 +23,8 @@ for n in range(1, num + 1):
 
     primo = True
     
-    for i in range(3, int(n ** 0.5) + 1, 2): # verificar apenas números ímpares até a raiz quadrada de n
+    # verificar apenas números ímpares até a raiz quadrada de n
+    for i in range(3, int(n ** 0.5) + 1, 2):
         if n % i == 0:
             primo = False
             break

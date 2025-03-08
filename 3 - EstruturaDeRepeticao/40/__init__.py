@@ -13,16 +13,16 @@ Deseja-se saber:
 - Qual a média de acidentes de trânsito nas cidades com menos de 2.000 veículos de passeio.
 """
 from statistics import mean
-from collections import namedtuple
+from collections import namedtuple, defaultdict
 
 # Entrada
 Cidade = namedtuple('cidade', 'codigo,veiculos,acidentes')
-cidades = list()
+cidades = defaultdict(Cidade)
 
 while len(cidades) < 5:
     codigo = input('Código da cidade: ')
 
-    if codigo in [cidade.codigo for cidade in cidades]:
+    if codigo in cidades.keys():
         print('Já consta este código de cidade.')
         continue
 
@@ -31,13 +31,15 @@ while len(cidades) < 5:
         input('Número de acidentes de trânsito com vítimas (em 1999): ')
     )
 
-    cidades.append(Cidade(codigo, veiculos, acidentes))
+    cidades[codigo] = Cidade(codigo, veiculos, acidentes)
 
 # Processamento
-mais_acidente = max(cidades, key=lambda cidade: cidade.acidentes)
-menos_acidente = min(cidades, key=lambda cidade: cidade.acidentes)
-media_veiculos = int(mean([cidade.veiculos for cidade in cidades]))
-cidades_filtro = list(filter(lambda cidade: cidade.veiculos < 2_000, cidades))
+mais_acidente = max(cidades.values(), key=lambda cidade: cidade.acidentes)
+menos_acidente = min(cidades.values(), key=lambda cidade: cidade.acidentes)
+media_veiculos = int(mean([cidade.veiculos for cidade in cidades.values()]))
+cidades_filtro = list(
+    filter(lambda cidade: cidade.veiculos < 2_000, cidades.values())
+)
 media_acidentes = int(mean([cidade.acidentes for cidade in cidades_filtro]))
 
 # Saída
